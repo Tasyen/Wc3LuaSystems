@@ -1,0 +1,32 @@
+IncludeFile "UI\FrameDef\UI\EscMenuTemplates.fdf",
+
+Frame "FRAME" "FrameListV" {
+    LayerStyle "IGNORETRACKEVENTS",
+    UseActiveContext,
+    Width 0.012,
+    Height 0.139,
+    Frame "SLIDER" "FrameListSliderV" INHERITS WITHCHILDREN "EscMenuSliderTemplate" {
+        UseActiveContext,
+        //SetPoint TOPRIGHT, "FrameListV", TOPRIGHT, 0, 0,
+        //SetPoint BOTTOMRIGHT, "FrameListV", BOTTOMRIGHT, 0, 0,
+        Width 0.012,
+        //Height 0.139,        
+        SliderLayoutVertical,
+        SliderStepSize 1,
+    }
+}
+
+Frame "FRAME" "FrameListH" {
+    LayerStyle "IGNORETRACKEVENTS",
+    UseActiveContext,
+    Width 0.139,
+    Height 0.012,    
+    Frame "SLIDER" "FrameListSliderH" INHERITS WITHCHILDREN "EscMenuSliderTemplate" {
+        UseActiveContext,
+        //SetPoint BOTTOMLEFT, "FrameListH", BOTTOMLEFT, 0, 0,
+        //SetPoint BOTTOMRIGHT, "FrameListH", BOTTOMRIGHT, 0, 0,
+        //Width 0.139,
+        Height 0.012,
+        SliderStepSize 1,
+    }
+}

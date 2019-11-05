@@ -1,0 +1,26 @@
+IncludeFile "UI\FrameDef\UI\SimpleInfoPanel.fdf",
+
+Frame "SIMPLEFRAME" "CustomStat" {
+    UseActiveContext,
+    SetAllPoints,
+    DecorateFileNames,
+    Width 0.015,
+    Height 0.0151,
+
+    // icon
+    Texture "CustomStatIcon" {
+        File "HeroStrengthIcon",
+		Width 0.015,
+		Height 0.015,
+    }
+
+
+    // value 
+    String "CustomStatText" INHERITS "SimpleInfoPanelValueTextTemplate" {        
+        SetPoint LEFT, "CustomStatIcon", RIGHT, 0.0, 0.0,
+		Font "InfoPanelTextFont", 0.010,
+		Text "Test"
+    }
+  
+
+}

@@ -1,0 +1,83 @@
+IncludeFile "UI\FrameDef\UI\EscMenuMainPanel.fdf",
+IncludeFile "UI\FrameDef\UI\EscMenuTemplates.fdf",
+IncludeFile "UI\FrameDef\UI\QuestDialog.fdf",
+
+Frame "TEXT" "WindowButtonTextTemplate" {
+    DecorateFileNames,
+    
+    FrameFont "EscMenuTextFont", 0.013, "",
+    FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,    
+    FontFlags "FIXEDSIZE",
+    FontColor 0.99 0.827 0.0705 1.0,
+}
+
+Frame "TEXT" "WindowTitelTemplate" {
+    DecorateFileNames,
+    FrameFont "EscMenuTextFont", 0.015, "",
+    FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,    
+    FontColor 0.99 0.827 0.0705 1.0,
+}
+
+Frame "GLUETEXTBUTTON" "WindowButtonTemplate" INHERITS WITHCHILDREN "EscMenuButtonTemplate" {
+    Width 0.0275,
+	Height 0.0275,
+    ButtonPushedTextOffset 0.001 -0.001,
+}
+
+Frame "GLUETEXTBUTTON" "WindowTabButtonTemplate" INHERITS WITHCHILDREN "EscMenuButtonTemplate" {
+    Width 0.0275,
+	Height 0.0275,
+    ButtonPushedTextOffset 0.001 -0.001,
+    ButtonText "WindowTabButtonTemplateText",
+    Frame "TEXT" "WindowTabButtonTemplateText" INHERITS "EscMenuInfoTextTemplate" {
+        FrameFont "EscMenuTextFont", 0.009, "",
+    }
+}
+Frame "GLUETEXTBUTTON" "WindowTabButton" INHERITS WITHCHILDREN "WindowTabButtonTemplate" {
+}
+
+
+
+Frame "GLUETEXTBUTTON" "WindowHead" {
+    ControlStyle "AUTOTRACK",
+    UseActiveContext,
+    Width 0.1725,
+	Height 0.0275,
+
+    ButtonText "WindowHeadText",
+    Frame "TEXT" "WindowHeadText" INHERITS "WindowTitelTemplate" {
+        Text "Title",
+    }
+
+    ControlBackdrop "WindowHeadBackdrop",
+    Frame "BACKDROP" "WindowHeadBackdrop" INHERITS "QuestButtonBaseTemplate" {
+    }
+
+    Frame "GLUETEXTBUTTON" "WindowCloseButton" INHERITS WITHCHILDREN "WindowButtonTemplate" {
+        UseActiveContext,
+        SetPoint LEFT, "WindowHead", RIGHT, -0.005, 0,
+
+        ButtonText "WindowCloseButtonText",
+        Frame "TEXT" "WindowCloseButtonText" INHERITS "WindowButtonTextTemplate" {
+            Text "X",
+        }
+    }
+    Frame "BACKDROP" "Window" INHERITS "EscMenuBackdrop" {
+        UseActiveContext,
+        Width 0.2,
+	    Height 0.2,
+        SetPoint TOPLEFT, "WindowHead", BOTTOMLEFT, 0.0, 0.001,
+        BackdropCornerSize  0.02, //smaller border then "EscMenuBackdrop" has
+        BackdropBackgroundInsets 0.007 0.007 0.007 0.007,
+
+        //"WindowPane" is the one you should stack stuff onto, or stack your own Pane onto
+        Frame "FRAME" "WindowPane" {
+            UseActiveContext,
+            LayerStyle "IGNORETRACKEVENTS",
+            SetPoint TOPLEFT, "Window", TOPLEFT, 0.015, -0.015,
+            SetPoint BOTTOMRIGHT, "Window", BOTTOMRIGHT, -0.015, 0.015,
+        }
+    }
+}
