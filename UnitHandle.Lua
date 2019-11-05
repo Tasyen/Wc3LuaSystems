@@ -1,7 +1,7 @@
 --A simple UnitIndexer, it is required for CustomUI to tell other players the target of rightclick if an unit is hovered by async BlzGetMouseFocusUnit()
 UnitIndexer = {}
 
-onTriggerInit(function()
+onGameStart(function()
     xpcall(function()
    --     print("onGameStart")
     
